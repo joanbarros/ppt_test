@@ -5,16 +5,16 @@ class PostTest < MiniTest::Unit::TestCase
 
   def setup
     @post = Post.new
+    @post.load "./tests/posts.json"
   end
 
   def test_post_can_locad_a_file
-    @post.load "testfile.json"
     assert_equal 3, @post.count
   end
 
   def test_find_by_id
     post = @post.find_by_id 2
-    assert_equal 2, post.id
+    assert_equal 2, post["id"].to_i
   end
 
   def test_find_by_author
