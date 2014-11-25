@@ -36,6 +36,6 @@ class PostTest < MiniTest::Unit::TestCase
 
   def test_description_preview
     post = @post.find_by_id 1
-    assert_equal "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare", @post.description_preview(post)
+    assert_equal "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare", @post.description_preview(1)
   end
 end

@@ -51,8 +51,8 @@ class Post
     return tags
   end
   
-  def description_preview post
-    #post = self.find_by_id id
+  def description_preview id
+    post = self.find_by_id id
     post["description"].split(' ')[0,10].join(' ')
   end
 end
