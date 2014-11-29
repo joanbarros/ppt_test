@@ -4,8 +4,7 @@ require './app/post'
 class PostTest < MiniTest::Unit::TestCase
 
   def setup
-    @post = Post.new
-    @post.load "./tests/posts.json"
+    @post = Post.load "./tests/posts.json"
   end
 
   def test_post_can_locad_a_file
@@ -26,7 +25,7 @@ class PostTest < MiniTest::Unit::TestCase
   def test_find_by_tag
    posts = @post.find_by_tag "fitness"
    assert_equal 2, posts.count
-   assert_includes posts[0]["tags"].tr(' ', '').split(','), "fitness"
+   assert_includes posts[0]["tags"], "fitness"
   end
   
   def test_get_tags

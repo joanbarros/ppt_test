@@ -1,8 +1,16 @@
 require 'json'
 
 class Post
-  def load path
-    @data = JSON.parse(File.open(path, "r").read)["posts"]
+  def initialize posts
+    @data = posts
+  end
+
+  def self.load path
+    data = JSON.parse(File.open(path, "r").read)["posts"]
+    data.each do |post|
+      post["tags"] = post["tags"].tr(' ', '').split(',')
+    end
+    Post.new data
   end
 
   def data
@@ -34,7 +42,7 @@ class Post
   def find_by_tag tag
     posts = []
     @data.each do |item|
-      if item["tags"].tr(' ', '').split(',').include? tag
+      if item["tags"].include? tag
         posts.push item
       end
     end
@@ -44,7 +52,7 @@ class Post
   def get_tags
     tags = []
     @data.each do |item|
-      item["tags"].tr(" ", "").split(',').each do |tag|
+      item["tags"].each do |tag|
         tags.push tag unless tags.include? tag
       end
     end
