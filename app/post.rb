@@ -32,7 +32,7 @@ class Post
   def find_by_author author
     posts = []
     @data.each do |item|
-      if item["author"] == author
+      if item["author"].downcase == author.downcase
         posts.push item
       end
     end

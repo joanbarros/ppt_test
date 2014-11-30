@@ -22,6 +22,12 @@ class PostTest < MiniTest::Unit::TestCase
     assert_equal "Pixelated", posts[1]["author"]
   end
 
+  def test_find_by_author_lowercase
+    posts = @post.find_by_author "pixelated"
+    assert_equal 2, posts.count
+    assert_equal "Pixelated", posts[1]["author"]
+  end
+
   def test_find_by_tag
    posts = @post.find_by_tag "fitness"
    assert_equal 2, posts.count
