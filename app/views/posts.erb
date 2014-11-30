@@ -1,5 +1,7 @@
+<ul>
 <% posts.each do |post| %>
-  <div>
+  <li>
     <a href="posts/<%= post["id"] %>"><%= post["title"] %></a>
-  </div>
+  </li>
 <% end %>
+</ul>
