@@ -13,5 +13,5 @@ end
 
 get "/tags/:tag" do
   posts = Post.load './tests/posts.json'
-  erb :psts, :locals => { posts: posts.find_by_tag(params["tag"]) }
+  erb :posts, :locals => { posts: posts.find_by_tag(params["tag"]) }
 end 
