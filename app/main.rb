@@ -1,5 +1,5 @@
 require 'sinatra'
-require './app/post'
+require './app/models/post'
 
 get "/posts" do
   posts = Post.load './tests/posts.json'

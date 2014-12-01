@@ -1,5 +1,10 @@
-<h1 id="title"><%= post["title"] %></h1>
+<h1 id="title"><%= post["title"] %><br/>
 <span id="author">by <%= post["author"] %></span>
+</h1>
+
+<div id="tags">
+  <%= post["tags"].join(', ') %>
+</div>
 
 <div id="description">
   <p>
@@ -7,6 +12,4 @@
   </p>
 </div>
 
-<div id="tags">
-  <%= post["tags"].join(', ') %>
-</div>
+
