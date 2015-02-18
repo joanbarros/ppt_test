@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './app/post'
+require './app/models/post'
 
 class PostTest < MiniTest::Unit::TestCase
 
